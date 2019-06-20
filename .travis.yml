@@ -7,8 +7,8 @@ env:
     - CLOUDSDK_CORE_DISABLE_PROMPTS=1
 before_install:
   - openssl aes-256-cbc -K $encrypted_0c35eebf403c_key -iv $encrypted_0c35eebf403c_iv -in cloud-user.json.enc -out cloud-user.json -d
-  - sysctl -w net.ipv6.conf.all.disable_ipv6=0
-  - sysctl -w net.ipv6.conf.default.disable_ipv6=0
+  - sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0
+  - sudo sysctl -w net.ipv6.conf.default.disable_ipv6=0
   - curl https://sdk.google.com | bash > /dev/null;
   - source $HOME/google-cloud-sdk/path.bash.inc
   - gcloud components update kubectl
